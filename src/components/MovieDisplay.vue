@@ -16,20 +16,10 @@
         <div class="content">
             <div>
                 <!-- Genre -->
-                <h4>Genres</h4>
-                <b-taglist>
+                <b-taglist class="centered">
                     <b-tag v-for="genre in genres" :key="genre"
                         type="is-info">{{ genre }}</b-tag>
                 </b-taglist>
-            </div>
-            <br>
-            <div>
-                <h4>languages</h4>
-                <b-taglist>
-                    <b-tag v-for="lang in languages" :key="lang"
-                        type="is-warn">{{ lang }}</b-tag>
-                </b-taglist>
-                <!-- Genre -->
             </div>
         </div>
     </div>
@@ -50,8 +40,22 @@ export default {
 </script>
 
 <style scoped>
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
 .movie-card {
-    width: 15vw;
+    width: 20vw;
     margin: 5px;
+    display: flex;
+}
+
+.card-content {
+    flex: 1; /* Pour occuper l'espace disponible à gauche */
+}
+
+.card-image {
+    width: 30%; /* Largeur de l'image */
 }
 </style>

@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .movie-list {
-    width: 70vw;
+    width: 90vw;
     margin: auto;
     margin-top: 30px;
     display: flex;

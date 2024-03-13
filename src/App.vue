@@ -26,7 +26,7 @@
         </b-field>
     </div>
 		<!-- Display movies -->
-    <MovieList :films="filteredMovies" />
+    <MovieList :films="filteredMovies" :colorMapping="colorMapping" />
   </div>
 </template>
 
@@ -51,6 +51,7 @@ export default {
 			selectedGenres: [],
 			filteredGenres: [],
 			query: "",
+			colorMapping: {},
     }
   },
   methods: {
@@ -62,6 +63,19 @@ export default {
           })
       });
       this.genres = Array.from(allGenres);
+			// Generate color mapping
+
+			const colors = [
+					"#FF5733", "#FFD700", "#FF6347", "#7FFF00", "#20B2AA", "#800080", "#FF4500",
+					"#008080", "#FF1493", "#800000", "#808000", "#FFA500", "#8A2BE2", "#00FF00",
+					"#000080", "#00FFFF", "#4B0082", "#A52A2A", "#8B0000", "#800080", "#FF69B4",
+					"#1E90FF", "#ADFF2F", "#FF7F50", "#DC143C", "#228B22", "#4682B4", "#9400D3",
+					"#00BFFF", "#6A5ACD", "#FFA07A", "#D2691E", "#008B8B", "#FF8C00", "#8B008B",
+					"#556B2F", "#9932CC", "#E9967A", "#9400D3", "#FA8072", "#9370DB"
+			];
+			this.genres.forEach((genre, idx) => {
+					this.colorMapping[genre] = colors[idx % colors.length];
+			});
     },
 		getFilteredMovies() {
 			this.filteredMovies = this.movies.filter((movie) => {

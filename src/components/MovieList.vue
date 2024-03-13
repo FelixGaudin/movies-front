@@ -3,7 +3,7 @@
     <MovieDisplay v-for="film in films" :key="film.title"
                   :title="film.title" :year="film.year"
                   :affiche="film.poster" :genres="film.genres"
-                  :languages="film.audio_streams" />
+                  :languages="film.audio_streams" :colorMapping="colorMapping"/>
   </section>
 </template>
 
@@ -16,7 +16,8 @@ export default {
     MovieDisplay
   },
   props: {
-    films: Array
+    films: Array,
+    colorMapping: Object,
   }
 }
 </script>

@@ -18,7 +18,8 @@
                 <!-- Genre -->
                 <b-taglist class="centered">
                     <b-tag v-for="genre in genres" :key="genre"
-                        type="is-info">{{ genre }}</b-tag>
+                        :style="getStyle(genre)"
+                        >{{ genre }}</b-tag>
                 </b-taglist>
             </div>
         </div>
@@ -34,7 +35,23 @@ export default {
     year: String,
     affiche: String,
     genres: Array,
-    languages: Array
+    languages: Array,
+    colorMapping: Object,
+  },
+  methods: {
+    getStyle(genre) {
+        return { 
+            backgroundColor: this.colorMapping[genre], 
+            color: this.textColor(this.colorMapping[genre]),
+        }
+    },
+    textColor(colorHex) {
+        const r = parseInt(colorHex.substr(1, 2), 16);
+        const g = parseInt(colorHex.substr(3, 2), 16);
+        const b = parseInt(colorHex.substr(5, 2), 16);
+        const luminosity = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+        return luminosity > 0.5 ? '#000000' : '#FFFFFF';
+    }
   }
 }
 </script>

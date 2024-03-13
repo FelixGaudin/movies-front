@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>
+    <div class="search">
       <!-- Search -->
 			<b-field label="Nom du film">
             <b-input 
@@ -8,7 +8,7 @@
 							@input="getFilteredMovies"
 							>
 						</b-input>
-        </b-field>
+			</b-field>
       <b-field label="Genre du film">
             <b-taginput
                 v-model="selectedGenres"
@@ -112,5 +112,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.search {
+	margin: auto;
+	align-self: center;
+	width: 50vw;
 }
 </style>

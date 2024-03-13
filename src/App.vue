@@ -34,6 +34,10 @@
 import MovieList from './components/MovieList.vue';
 import data from './data/movies.json';
 
+let sortedMovies = data.slice().sort((a, b) => {
+	return a.title.localeCompare(b.title);
+}); 
+
 export default {
   name: 'App',
   components: {
@@ -41,8 +45,8 @@ export default {
   },
   data() {
     return {
-      movies: data,
-      filteredMovies: data,
+      movies: sortedMovies,
+      filteredMovies: sortedMovies,
       genres: [],
 			selectedGenres: [],
 			filteredGenres: [],

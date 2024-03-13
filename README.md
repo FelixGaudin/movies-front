@@ -1,5 +1,7 @@
 # movie-front
 
+This project was coded using the help of ChatGPT
+
 ## Project setup
 ```
 npm install
